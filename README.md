@@ -79,11 +79,11 @@ The application uses a dark theme with:
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## Contact
-For any queries or suggestions, please reach out to [contact information].
+For any queries or suggestions, please reach out to:
+- Email: your.email@example.com
+- GitHub: [Sanjeet Kumar](https://github.com/sanjeet-sk-kumar)
+- LinkedIn: [Sanjeet Kumar](https://www.linkedin.com/in/sanjeet-kumar-5a33b77b/)
 
 ---
 Built with ❤️ using Next.js 
