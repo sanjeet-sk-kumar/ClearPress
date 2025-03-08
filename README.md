@@ -81,7 +81,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Contact
 For any queries or suggestions, please reach out to:
-- Email: your.email@example.com
+- Email: sanjeet.kumar.nitt@gmail.com
 - GitHub: [Sanjeet Kumar](https://github.com/sanjeet-sk-kumar)
 - LinkedIn: [Sanjeet Kumar](https://www.linkedin.com/in/sanjeet-kumar-5a33b77b/)
 
