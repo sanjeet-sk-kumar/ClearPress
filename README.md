@@ -10,11 +10,13 @@ ClearPress is a modern news platform built with Next.js that delivers concise, u
 - 📱 **Responsive Design**: Seamless experience across all device sizes
 - 🎯 **Focused Content**: Concise and unbiased news delivery
 - 🔍 **Article Details**: In-depth view of individual news stories with full content
+- 💾 **SQLite Database**: Local database storage for news articles
 
 ## Tech Stack
 - **Framework**: Next.js
 - **Styling**: CSS Modules with custom styling
 - **Routing**: Next.js App Router with parallel routes and intercepting routes
+- **Database**: SQLite with better-sqlite3
 - **Font**: Inter & Merriweather from Google Fonts
 - **Images**: Optimized image loading with Next.js Image component
 
@@ -42,14 +44,19 @@ npm install
 yarn install
 ```
 
-4. Run the development server:
+4. Initialize the database:
+```bash
+node initDB.js
+```
+
+5. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+6. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
 ## Project Structure
 ```
@@ -61,6 +68,8 @@ app/
 ├── components/         # Reusable components
 ├── assets/            # Static assets
 ├── lib/               # Utility functions
+├── initDB.js         # Database initialization script
+├── news.db           # SQLite database file
 └── globals.css        # Global styles
 ```
 
@@ -84,6 +93,32 @@ For any queries or suggestions, please reach out to:
 - Email: sanjeet.kumar.nitt@gmail.com
 - GitHub: [Sanjeet Kumar](https://github.com/sanjeet-sk-kumar)
 - LinkedIn: [Sanjeet Kumar](https://www.linkedin.com/in/sanjeet-kumar-5a33b77b/)
+
+## Database Structure
+The application uses SQLite for data storage with the following structure:
+
+### News Table
+```sql
+CREATE TABLE news (
+    id INTEGER PRIMARY KEY,
+    slug TEXT UNIQUE,
+    title TEXT,
+    image TEXT,
+    date TEXT,
+    content TEXT
+);
+```
+
+### Database Initialization
+To initialize the database, you need to run the following command after installation:
+```bash
+node initDB.js
+```
+
+This will:
+1. Create the necessary database tables if they don't exist
+2. Populate the news table with sample news articles if it's empty
+3. Create the database file (`news.db`) in the root directory
 
 ---
 Built with ❤️ using Next.js 
