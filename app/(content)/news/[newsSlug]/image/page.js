@@ -1,13 +1,12 @@
-import { DUMMY_NEWS } from "@/dummy-news";
+import { getNewsItem } from "@/lib/news";
 import { notFound } from "next/navigation";
 
-const ImagePage = ({ params }) => {
+const ImagePage = async ({ params }) => {
   const { newsSlug } = params;
-  const news = DUMMY_NEWS.find((news) => news.slug === newsSlug);
+  const news = await getNewsItem(newsSlug);
   if (!news) {
     notFound();
   }
-  console.log("!!!!!!!!!!!!!!!!!!!",news);
   return (
     <div className="fullscreen-image">
       <img src={`/images/news/${news.image}`} alt={news.title} />

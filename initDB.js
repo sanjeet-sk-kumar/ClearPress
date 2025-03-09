@@ -1,4 +1,6 @@
-export const DUMMY_NEWS = [
+import sql from 'better-sqlite3';
+
+const DUMMY_NEWS = [
     {
       id: 'n1',
       slug: 'will-ai-replace-humans',
@@ -40,4 +42,30 @@ export const DUMMY_NEWS = [
       date: '2022-07-01',
       content: 'Landscape photography is a great way to capture the beauty of nature. It is also a great way to get outside and enjoy the great outdoors. So what are you waiting for? Get out there and start taking some pictures!',
     },
-  ];
+];
+
+const db = sql('news.db');
+
+const insertDummyNews = () => {
+    const stmnt=db.prepare("INSERT INTO news (slug, title, content, date, image) VALUES (?, ?, ?, ?, ?)");
+    DUMMY_NEWS.forEach((news) => {
+        stmnt.run( news.slug, news.title,news.content, news.date, news.image,);
+    });
+}
+
+const initDB = () => {
+    db.exec(`
+        CREATE TABLE IF NOT EXISTS news (
+            id INTEGER PRIMARY KEY,
+            slug TEXT UNIQUE,
+            title TEXT,
+            image TEXT,
+            date TEXT,
+            content TEXT
+        );
+    `);
+
+    db.prepare("SELECT count(*) FROM news").pluck().get() === 0 && insertDummyNews();
+}
+
+initDB();
